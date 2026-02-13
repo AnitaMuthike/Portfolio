@@ -18,6 +18,7 @@ async function submitContact(req, res) {
     return renderHome(req, res, {
       statusCode: 403,
       errorMessage: "Security check failed. Refresh the page and submit again.",
+      focusContact: true,
       formData,
     });
   }
@@ -26,6 +27,7 @@ async function submitContact(req, res) {
     return renderHome(req, res, {
       statusCode: 400,
       errorMessage,
+      focusContact: true,
       formData,
     });
   }
@@ -35,6 +37,7 @@ async function submitContact(req, res) {
       statusCode: 503,
       errorMessage:
         "Message service is temporarily unavailable. Please try again shortly.",
+      focusContact: true,
       formData,
     });
   }
@@ -50,13 +53,14 @@ async function submitContact(req, res) {
       setFlash(res, "contact_saved_email_failed");
     }
 
-    return res.redirect("/#contact");
+    return res.redirect("/");
   } catch (error) {
     console.error("Failed to save contact message:", error.message);
     return renderHome(req, res, {
       statusCode: 500,
       errorMessage:
         "Your message could not be sent right now. Please try again later.",
+      focusContact: true,
       formData,
     });
   }

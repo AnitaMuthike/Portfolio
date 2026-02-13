@@ -14,7 +14,11 @@ function getHome(req, res) {
       ? "Your message was saved, but email notification is temporarily unavailable."
       : "";
 
-  return renderHome(req, res, { success, warningMessage });
+  return renderHome(req, res, {
+    success,
+    warningMessage,
+    focusContact: success || Boolean(warningMessage),
+  });
 }
 
 function downloadCv(req, res) {

@@ -6,6 +6,7 @@ function renderHome(req, res, options = {}) {
     success = false,
     errorMessage = "",
     warningMessage = "",
+    focusContact = false,
     formData = { name: "", email: "", message: "" },
   } = options;
   const csrfToken = ensureCsrfToken(req, res);
@@ -15,6 +16,7 @@ function renderHome(req, res, options = {}) {
     success,
     errorMessage,
     warningMessage,
+    focusContact,
     formData,
     csrfToken,
   });
