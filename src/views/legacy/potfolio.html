@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anita Muthike | Full-Stack Developer & IT Student</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <style>
+    :root {
+      --primary: #6366f1;   /* Indigo */
+      --primary-soft: #eef2ff;
+      --accent: #f97316;    /* Orange */
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --bg-light: #f9fafb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background-color: #ffffff;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .navbar-brand span.logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      padding-inline: 0.85rem;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--primary);
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle at top left, #e0e7ff, #f9fafb);
+      overflow: hidden;
+    }
+
+    .hero-accent-blob {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25), transparent 65%);
+      border-radius: 50%;
+      right: -120px;
+      top: -120px;
+      pointer-events: none;
+    }
+
+    .hero-accent-blob-2 {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.16), transparent 70%);
+      border-radius: 50%;
+      left: -140px;
+      bottom: -80px;
+      pointer-events: none;
+    }
+
+    .hero-subtitle {
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3.3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: var(--text-muted);
+      max-width: 540px;
+      font-size: 0.98rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-pill i {
+      color: var(--accent);
+    }
+
+    .btn-primary-main {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: none;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .btn-primary-main:hover {
+      opacity: 0.93;
+      color: #ffffff;
+    }
+
+    .btn-outline-main {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      color: var(--text-main);
+      background-color: #ffffff;
+      padding: 0.65rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .btn-outline-main:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: #ffffff;
+    }
+
+    .btn-link-main {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .btn-link-main i {
+      color: var(--primary);
+    }
+
+    .btn-link-main:hover {
+      color: var(--primary);
+    }
+
+    /* Hero profile card */
+    .profile-card {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      padding: 1.4rem 1.6rem;
+      position: relative;
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+
+    .profile-photo-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 160deg,
+        #6366f1,
+        #f97316,
+        #22c55e,
+        #6366f1
+      );
+      animation: spinRing 8s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes spinRing {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .profile-photo-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4px;
+    }
+
+        .nav-logo {
+    height: 34px; /* controls logo size */
+    width: auto; /* keeps aspect ratio */
+    object-fit: contain;
+    margin-right: 0.5rem; /* space between logo and name */
+    }
+
+    .profile-photo-inner img {
+      border-radius: 999px;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      background-color: #e5e7eb;
+    }
+
+    .profile-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .profile-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .profile-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .profile-links a {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    .profile-links a i {
+      color: var(--primary);
+    }
+
+    .profile-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-heading {
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-heading span.line {
+      display: inline-block;
+      width: 40px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    /* About */
+    .about-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .info-list li {
+      font-size: 0.9rem;
+      padding: 0.45rem 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .info-list span.label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .info-list span.value {
+      color: var(--text-main);
+    }
+
+    /* Skills */
+    #skills {
+      background: linear-gradient(135deg, #f9fafb, #eff6ff);
+    }
+
+    .card-soft {
+      border-radius: 1.1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.04);
+      height: 100%;
+    }
+
+    .card-soft h5 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-soft p {
+      font-size: 0.9rem;
+    }
+
+    .skill-badge {
+      margin: 0.15rem;
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+    }
+
+    /* Projects */
+    .project-card {
+      border-radius: 1.2rem;
+      border: 1px solid #e5e7eb;
+      position: relative;
+      overflow: hidden;
+      background-color: #ffffff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+      border-color: rgba(99, 102, 241, 0.5);
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .project-card h5 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+    }
+
+    /* Education */
+    #education {
+      background-color: var(--bg-light);
+    }
+
+    .timeline-pill {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: #e5e7eb;
+      color: var(--text-muted);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Experience */
+    .experience-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      margin-right: 0.6rem;
+    }
+
+    .experience-item p,
+    .experience-item li {
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    #contact {
+      background: radial-gradient(circle at top, #eef2ff, #ffffff 55%, #fff7ed);
+    }
+
+    .contact-card {
+      border-radius: 1.2rem;
+      border: 1px solid #e5e7eb;
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.25);
+    }
+
+    .contact-details li {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-details a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    .form-control,
+    .form-control:focus {
+      border-radius: 0.8rem;
+      border-color: #e5e7eb;
+      box-shadow: none;
+      font-size: 0.9rem;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #020617;
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #e5e7eb;
+    }
+
+    /* Small tweaks */
+    @media (max-width: 767.98px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <span>
+         <img src="images/Anita_logo.jpg" alt="anita_logo" class="nav-logo"></span>
+        <span>ANITA&nbsp;MUTHIKE</span>
+      </a> 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / HOME -->
+  <section id="home">
+    <div class="hero-accent-blob"></div>
+    <div class="hero-accent-blob-2"></div>
+
+    <div class="container position-relative py-5">
+      <div class="row align-items-center g-5">
+        <!-- Left -->
+        <div class="col-lg-7">
+          <span class="hero-pill">
+            <i class="bi bi-check2-circle"></i>
+            Available for remote work & internships
+          </span>
+          <p class="hero-subtitle mt-2">Full-Stack Developer • IT Student</p>
+          <h1 class="hero-title">
+            Hi, I'm <span>Anita Muthike</span>. <br>
+          I build clean, responsive websites.
+          </h1>
+          <p class="hero-text mb-4">
+            Im an Information Technology student focusing on full-stack development 
+             plus databases and practical tech
+            solutions. I enjoy turning ideas into functional, user-friendly interfaces and
+            well-structured systems that actually solve problems.
+          </p>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <a href="#projects" class="btn btn-primary-main">
+              <i class="bi bi-grid-3x3-gap-fill me-2"></i>View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline-main">
+              <i class="bi bi-chat-text me-2"></i>Let’s Connect
+            </a>
+            <!-- Replace # with your CV link when ready -->
+            <a href="#" class="btn-link-main ms-lg-2">
+              <i class="bi bi-file-earmark-arrow-down me-1"></i>
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <!-- Right profile card -->
+        <div class="col-lg-5">
+          <div class="profile-card">
+            <div class="d-flex flex-column align-items-center text-center">
+              <div class="profile-photo-wrapper">
+                <div class="profile-photo-ring"></div>
+                <div class="profile-photo-inner">
+                  <!-- Replace src with your real photo path -->
+                  <img src="anita.jpg" alt="Profile photo of Anita" />
+                </div>
+              </div>
+              <span class="profile-tag">
+                <i class="bi bi-lightning-charge-fill"></i>
+                Open to internships & full-stack projects
+              </span>
+              <h5 class="profile-name mt-2 mb-1">Anita Muthike</h5>
+              <p class="profile-role">
+                Full-Stack Developer · IT Student · Data Entry Enthusiast
+              </p>
+              <p class="profile-meta mb-3">
+                Based in Kenya • Focused on front end, back end, REST APIs, and database-driven apps.
+              </p>
+              <div class="profile-links d-flex gap-3 flex-wrap justify-content-center">
+                <!-- Replace # with real links -->
+                <a href="#"><i class="bi bi-github me-1"></i>GitHub</a>
+                <a href="#"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+                <a href="#"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <p class="section-title">About</p>
+      <h2 class="section-heading">
+        A bit about me
+        <span class="line"></span>
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="about-highlight">
+            <i class="bi bi-motherboard"></i>
+            IT student specializing in full-stack development
+          </div>
+          <p class="about-text">
+            I'm an <strong>Information Technology student</strong> with a strong focus on
+            <strong>full-stack web development</strong> - building both the front end (user
+            interfaces) and the back end (server logic, APIs, and databases). I enjoy creating
+            responsive web apps that connect clean UIs with solid backend systems.
+          </p>
+          <p class="about-text">
+            Beyond coding, I enjoy learning new tools, improving my problem-solving skills, and
+            working on projects that help me grow as a full-stack developer and IT professional.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="card-soft p-3 p-md-4">
+            <ul class="list-unstyled info-list mb-0">
+              <li>
+                <span class="label">Name</span>
+                <span class="value">Anita Muthike</span>
+              </li>
+              <li>
+                <span class="label">Role</span>
+                <span class="value">Full-Stack Developer & IT Student</span>
+              </li>
+              <li>
+                <span class="label">Location</span>
+                <span class="value">Kenya</span>
+              </li>
+              <li>
+                <span class="label">Email</span>
+                <span class="value">anitamuthike@gmail.com</span>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <p class="section-title">Skills</p>
+      <h2 class="section-heading">
+        What I work with
+        <span class="line"></span>
+      </h2>
+
+      <div class="row g-4">
+        <!-- Front-End Development -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-code-slash me-2 text-primary"></i>Front-End Development
+            </h5>
+            <p class="text-muted mb-3">
+              Building clean, responsive and accessible user interfaces for modern web apps.
+            </p>
+            <span class="badge bg-primary-subtle text-primary skill-badge">HTML5</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">CSS3</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">Bootstrap</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">JavaScript</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">React</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">Responsive UI</span>
+          </div>
+        </div>
+
+        <!-- Back-End & Databases -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-pc-display-horizontal me-2 text-success"></i>Back-End & Databases
+            </h5>
+            <p class="text-muted mb-3">
+              Building APIs, server-side logic, and working with relational and NoSQL databases.
+            </p>
+            <span class="badge bg-success-subtle text-success skill-badge">Node.js</span>
+            <span class="badge bg-success-subtle text-success skill-badge">Express.js</span>
+            <span class="badge bg-success-subtle text-success skill-badge">REST APIs</span>
+            <span class="badge bg-success-subtle text-success skill-badge">MongoDB</span>
+            <span class="badge bg-success-subtle text-success skill-badge">PostgreSQL</span>
+            <span class="badge bg-success-subtle text-success skill-badge">SQL / Relational DBs</span>
+          </div>
+        </div>
+
+        <!-- Programming & Tools -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-tools me-2 text-info"></i>Programming & Tools
+            </h5>
+            <p class="text-muted mb-3">
+              Languages and tools I use to write, test, and manage production-ready code and data.
+            </p>
+            <span class="badge bg-info-subtle text-info skill-badge">Python</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Java</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Git & GitHub</span>
+            <span class="badge bg-info-subtle text-info skill-badge">VS Code</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Chrome DevTools</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Figma (basic)</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Google Sheets / Excel</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Google Docs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <p class="section-title">Projects</p>
+      <h2 class="section-heading">
+        Some things I’ve built
+        <span class="line"></span>
+      </h2>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="card-body p-3 p-md-4">
+              <p class="project-tag mb-1">Featured</p>
+              <h5 class="card-title">Personal Portfolio Website</h5>
+              <p class="card-text text-muted">
+                A responsive one-page portfolio built to showcase my full-stack skills, projects,
+                and contact details.
+              </p>
+              <p class="small mb-2">
+                <strong>Tech:</strong> HTML, CSS, Bootstrap
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between px-3 pb-3">
+              <!-- Replace # with real links -->
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-box-arrow-up-right me-1"></i>Live Demo
+              </a>
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-github me-1"></i>Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="card-body p-3 p-md-4">
+              <p class="project-tag mb-1">Data Entry</p>
+              <h5 class="card-title">Lead Data Entry Dashboard</h5>
+              <p class="card-text text-muted">
+                A structured Google Sheets/Excel template for organizing leads with fields like
+                name, email, company, contact date, and notes, formatted for quick filtering and
+                reporting.
+              </p>
+              <p class="small mb-2">
+                <strong>Tech:</strong> Google Sheets, Excel, Data Validation
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between px-3 pb-3">
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-box-arrow-up-right me-1"></i>View Sample
+              </a>
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-file-earmark-spreadsheet me-1"></i>Spreadsheet
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="card-body p-3 p-md-4">
+              <p class="project-tag mb-1">Practical IT</p>
+              <h5 class="card-title">Simple Inventory System</h5>
+              <p class="card-text text-muted">
+                A basic inventory tracking system for small items, focusing on clean structure,
+                searchability, and error-free data entry for everyday use.
+              </p>
+              <p class="small mb-2">
+                <strong>Tech:</strong> HTML, CSS, JavaScript, Excel / Sheets
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between px-3 pb-3">
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-box-arrow-up-right me-1"></i>Preview
+              </a>
+              <a href="#" class="btn btn-sm btn-outline-main">
+                <i class="bi bi-github me-1"></i>Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-5">
+    <div class="container">
+      <p class="section-title">Education</p>
+      <h2 class="section-heading">
+        My academic background
+        <span class="line"></span>
+      </h2>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card-soft p-3 p-md-4">
+            <span class="timeline-pill">Current Studies</span>
+            <h5 class="mb-1">Diploma / Degree in Information Technology</h5>
+            <p class="text-muted mb-2">
+              Your Institution Name • <span>Year – Present</span>
+            </p>
+            <p class="mb-2" style="font-size: 0.92rem;">
+              Studying core areas of IT including <strong>full-stack web development</strong>,
+              database management, networking, and system support.
+            </p>
+            <p class="small text-muted mb-0">
+              <strong>Relevant coursework:</strong> Web Development, Database Systems (DBMS),
+              Networking, Operating Systems, Software Engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="row mt-4">
+        <div class="col-lg-8">
+          <h6 class="fw-semibold mb-3" style="font-size: 0.9rem;">Certifications & Online Learning</h6>
+          <ul class="list-unstyled mb-0" style="font-size: 0.9rem;">
+            <li>• Intro to Web Development – [Platform Name]</li>
+            <li>• Basics of Networking – [Platform Name]</li>
+            <li>• Excel / Google Sheets for Data Entry – [Platform Name]</li>
+          </ul>
+          <p class="small text-muted mt-2 mb-0">
+            (Replace these with real certificates or courses you’ve taken.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-5">
+    <div class="container">
+      <p class="section-title">Experience</p>
+      <h2 class="section-heading">
+        Practical experience
+        <span class="line"></span>
+      </h2>
+
+      <div class="row g-4">
+        <!-- Attachment / Internship -->
+        <div class="col-lg-6">
+          <div class="card-soft p-3 p-md-4 experience-item h-100">
+            <div class="d-flex align-items-center mb-1">
+              <span class="timeline-dot"></span>
+              <h5 class="experience-title mb-0">IT Attachment / Internship</h5>
+            </div>
+            <p class="text-muted mb-2" style="font-size: 0.88rem;">
+              Company / Organization Name • Dates
+            </p>
+            <p class="mb-2">
+              Assisted with basic IT support, software installation, troubleshooting, and data
+              organization tasks.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Helped resolve basic hardware and software issues.</li>
+              <li>Supported users with common IT problems.</li>
+              <li>Maintained records using Excel / Google Sheets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelance / Projects -->
+        <div class="col-lg-6">
+          <div class="card-soft p-3 p-md-4 experience-item h-100">
+            <div class="d-flex align-items-center mb-1">
+              <span class="timeline-dot"></span>
+              <h5 class="experience-title mb-0">Freelance & Project Work</h5>
+            </div>
+            <p class="text-muted mb-2" style="font-size: 0.88rem;">
+              Remote / Online • Ongoing
+            </p>
+            <p class="mb-2">
+              Worked on small web and data entry projects including app promotion tracking,
+              YouTube metadata collection, and spreadsheet organization.
+            </p>
+            <ul class="small text-muted mb-0">
+              <li>Created structured templates for clean data entry.</li>
+              <li>Collected and organized online information accurately.</li>
+              <li>Communicated with clients and delivered work on time.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <p class="section-title">Contact</p>
+      <h2 class="section-heading">
+        Let’s work together
+        <span class="line"></span>
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="contact-card p-3 p-md-4">
+            <p class="mb-3" style="font-size: 0.95rem;">
+              If you’d like to work with me on a project, need help with full-stack web development
+              or data entry, or just want to say hello, feel free to reach out.
+            </p>
+            <ul class="list-unstyled contact-details mb-0">
+              <li>
+                <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                <strong>Email:</strong> youremail@example.com
+              </li>
+              <li>
+                <i class="bi bi-github me-2 text-dark"></i>
+                <strong>GitHub:</strong>
+                <a href="#">github.com/yourusername</a>
+              </li>
+              <li>
+                <i class="bi bi-linkedin me-2 text-primary"></i>
+                <strong>LinkedIn:</strong>
+                <a href="#">linkedin.com/in/yourprofile</a>
+              </li>
+              <li>
+                <i class="bi bi-whatsapp me-2 text-success"></i>
+                <strong>WhatsApp:</strong> +254 7xx xxx xxx
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="contact-card p-3 p-md-4">
+            <!-- Front-end form only -->
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="4"
+                  placeholder="Tell me about your project or question..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary-main">
+                <i class="bi bi-send me-1"></i>Send Message
+              </button>
+              <p class="small text-muted mt-2 mb-0">
+                (Later, you can connect this form to an email service like Formspree or a backend.)
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-3 mt-3">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0">
+        © <span id="year"></span> Anita Muthike. All rights reserved.
+      </p>
+      <p class="mb-0">
+        Built with <span class="text-danger">♥</span> using
+        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">Bootstrap</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Auto-update year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anita Muthike | Web Developer & IT Student</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <style>
+    :root {
+      /* Custom colour theme */
+      --main-primary: #6366f1;  /* Indigo */
+      --main-secondary: #ec4899; /* Pink */
+      --main-dark: #0f172a;     /* Slate */
+      --primary: #6366f1;
+      --text-muted: #6b7280;
+      --bg-light: #f9fafb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #111827;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.85) !important;
+    }
+
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #e5e7eb !important;
+    }
+
+    .navbar-brand span {
+      color: var(--main-secondary);
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+      color: #fff !important;
+      
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at top left, #4f46e5, #0f172a 55%);
+      color: #f9fafb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Soft glowing shapes in hero */
+    .hero-overlay-circle {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.45), transparent 65%);
+      top: -80px;
+      right: -60px;
+      filter: blur(2px);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-overlay-blob {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.38), transparent 65%);
+      bottom: -80px;
+      left: -40px;
+      filter: blur(2px);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-subtitle {
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: #a5b4fc;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #e5e7eb, #a5b4fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: #e5e7eb;
+      max-width: 560px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(135deg, var(--main-secondary), var(--main-primary));
+      border: none;
+      color: #fff;
+    }
+
+    .btn-primary-custom:hover {
+      opacity: 0.9;
+      color: #fff;
+    }
+
+    .btn-outline-custom {
+      border-color: #e5e7eb;
+      color: #e5e7eb;
+    }
+
+    .btn-outline-custom:hover {
+      background-color: #e5e7eb;
+      color: #0f172a;
+    }
+
+    /* Hero photo area */
+    .profile-card {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-photo-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 180deg,
+        #6366f1,
+        #ec4899,
+        #22d3ee,
+        #6366f1
+      );
+      opacity: 0.9;
+      z-index: 1;
+    }
+
+    .profile-photo-inner {
+      position: relative;
+      z-index: 2;
+      padding: 6px;
+    }
+
+    .profile-photo-inner img {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      border: 4px solid #020617;
+      background-color: #020617;
+    }
+
+    .profile-badge {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.2);
+      color: #bfdbfe;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading {
+      font-weight: 800;
+      font-size: 1.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-heading::after {
+      content: "";
+      display: inline-block;
+      width: 40px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--main-primary), var(--main-secondary));
+      margin-left: 0.6rem;
+    }
+
+    /* About & cards */
+    .card-soft {
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      background: #eef2ff;
+      color: #4f46e5;
+    }
+
+    /* Skills */
+    #skills {
+      background: linear-gradient(135deg, #eff6ff, #fdf2ff);
+    }
+
+    #skills .card-soft {
+      border-radius: 1.1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.04);
+      height: 100%;
+    }
+
+    #skills .card-soft h5 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    #skills .card-soft p {
+      font-size: 0.9rem;
+    }
+
+    .skill-badge {
+      margin: 0.15rem;
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    /* Projects */
+    /* PROJECTS SECTION LOOK & FEEL */
+#projects {
+  background: #f9fafb;
+}
+
+/* Card container */
+.project-card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.6); /* uses indigo tone */
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* Image area */
+.project-media {
+  position: relative;
+  overflow: hidden;
+  max-height: 190px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Project preview image */
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* Slight zoom on hover */
+.project-card:hover .project-media img {
+  transform: scale(1.06);
+}
+
+/* Project tag chip */
+.project-tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Title + text already good, just spacing */
+.project-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+}
+
+/* FOOTER BUTTONS */
+/* Primary outline for Live Demo */
+.btn-outline-main {
+  border-radius: 999px;
+  border: 1px solid var(--main-primary);
+  color: var(--main-primary);
+  background: transparent;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  font-weight: 500;
+}
+
+.btn-outline-main:hover {
+  background: var(--main-primary);
+  color: #ffffff;
+}
+
+/* Softer outline for Code button */
+.btn-outline-muted {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  background: transparent;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  font-weight: 500;
+}
+
+.btn-outline-muted:hover {
+  border-color: #9ca3af;
+  background: #f3f4f6;
+  color: #111827;
+}
+    #education {
+      background-color: var(--bg-light);
+    }
+
+    .timeline-pill {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: #e5e7eb;
+      color: var(--text-muted);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+     /* Experience */
+    .experience-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .experience-item p,
+    .experience-item li {
+      font-size: 0.9rem;
+    }
+
+    /* Experience timeline hint */
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      margin-right: 0.5rem;
+    }
+
+    /* Contact */
+    #contact {
+      background: radial-gradient(circle at top, #eef2ff, #f9fafb 45%, #fdf2ff);
+    }
+
+    .contact-card {
+      border-radius: 1.4rem;
+      border: 1px solid #e5e7eb;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 50px rgba(148, 163, 184, 0.25);
+    }
+
+    .contact-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-link:hover {
+      color: var(--main-primary);
+    }
+
+    .contact-details li {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-details a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    .form-control,
+    .form-control:focus {
+      border-radius: 0.8rem;
+      border-color: #e5e7eb;
+      box-shadow: none;
+      font-size: 0.9rem;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #e5e7eb;
+    }
+
+    /* Navbar logo image */
+    .nav-logo {
+    height: 40px;          /* controls logo size */
+    width: auto;           /* keeps aspect ratio */
+    object-fit: contain;
+    margin-right: 0.5rem;  /* space between logo and name */
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <span>
+         <img src="images/Anita_logo.png" alt="anita_logo" class="nav-logo"></span>
+        <span>ANITA&nbsp;MUTHIKE</span>
+      </a> 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / HOME -->
+  <section id="home">
+    <div class="hero-overlay-circle"></div>
+    <div class="hero-overlay-blob"></div>
+
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <!-- Left text -->
+        <div class="col-lg-7">
+            <span class="hero-pill mb-3 d-inline-block text-dark">
+            <i class="bi bi-check2-circle"></i>
+            Available for remote work & internships
+          </span>
+          <p class="hero-subtitle mb-2">Full-Stack Developer • IT Student</p>
+          <h1 class="hero-title mb-3">
+            Hi, I'm <span>Anita Muthike.</span><br />
+            I build clean, responsive websites.
+          </h1>
+         <p class="hero-text mb-4">
+            I'm an Information Technology student focusing on full-stack development 
+             plus databases and practical tech
+            solutions. I enjoy turning ideas into functional, user-friendly interfaces and
+            well-structured systems that actually solve problems.
+          </p>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <a href="#projects" class="btn btn-primary-custom btn-lg">
+              <i class="bi bi-grid-3x3-gap-fill me-2"></i>View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline-custom btn-lg">
+              <i class="bi bi-chat-dots me-2"></i>Contact Me
+            </a>
+            <a href="mailto:anitamuthike@gmail.com?subject=CV%20Request" class="btn btn-sm btn-light ms-lg-2">
+              <i class="bi bi-file-earmark-arrow-down me-1"></i>Request CV
+            </a>
+          </div>
+        </div>
+
+        <!-- Right profile card with photo area -->
+        <div class="col-lg-5">
+          <div class="profile-card p-4 p-md-4 text-center text-md-start">
+            <div class="d-flex flex-column align-items-center align-items-md-start">
+              <!-- Photo Area -->
+              <div class="profile-photo-wrapper mb-3">
+                <div class="profile-photo-ring"></div>
+                <div class="profile-photo-inner">
+                  <!-- Replace src with your real photo path -->
+                  <img src="images/anita.jpg" alt="Profile photo of Anita" />
+                </div>
+              </div>
+
+              <span class="profile-badge mb-2">
+                <i class="bi bi-lightning-charge-fill me-1"></i>Open to internships & full-stack projects
+              </span>
+
+              <h5 class="mt-2 mb-1 text-light">Anita Muthike</h5>
+              <p class="mb-2 text-secondary small">
+                Full-Stack Developer · IT Student · Data Entry Enthusiast
+              </p>
+              <p class="text-secondary small mb-3">
+                Based in Kenya • Focused on front end, back end, REST APIs, and database-driven apps.
+              </p>
+
+              <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                <a href="https://github.com/AnitaMuthike" class="text-secondary contact-link" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github me-1"></i>GitHub
+                </a>
+                <a href="https://wa.me/254705197012" class="text-secondary contact-link" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-whatsapp me-1"></i>WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5 bg-white">
+    <div class="container">
+      <p class="section-title">About</p>
+      <h2 class="section-heading mb-4">A bit about me</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="mb-3">
+            <span class="highlight-pill">
+              <i class="bi bi-motherboard"></i>
+              IT student specializing in full-stack development
+            </span>
+          </div>
+          <p class="about-text">
+            I'm an <strong>Information Technology student</strong> with a strong focus on
+            <strong>full-stack web development</strong> - building both the front end (user
+            interfaces) and the back end (server logic, APIs, and databases). I enjoy creating
+            responsive web apps that connect clean UIs with solid backend systems.
+          </p>
+          <p class="about-text">
+            Beyond coding, I enjoy learning new tools, improving my problem-solving skills, and
+            working on projects that help me grow as a developer and IT professional.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="card card-soft">
+            <div class="card-body p-3 p-md-4">
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex justify-content-between py-2 border-bottom">
+                  <span class="fw-semibold text-secondary">Name</span>
+                  <span class="text-dark">Anita Muthike</span>
+                </li>
+                <li class="d-flex justify-content-between py-2 border-bottom">
+                  <span class="fw-semibold text-secondary">Role</span>
+                  <span class="text-dark">Full-Stack Developer & IT Student</span>
+                </li>
+                <li class="d-flex justify-content-between py-2 border-bottom">
+                  <span class="fw-semibold text-secondary">Location</span>
+                  <span class="text-dark">Kenya</span>
+                </li>
+                <li class="d-flex justify-content-between py-2">
+                  <span class="fw-semibold text-secondary">Email</span>
+                  <span class="text-dark">anitamuthike@gmail.com</span>
+                </li>
+              </ul>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <p class="section-title">Skills</p>
+      <h2 class="section-heading mb-4">What I work with</h2>
+<div class="row g-4">
+        <!-- Front-End Development -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-code-slash me-2 text-primary"></i>Front-End Development
+            </h5>
+            <p class="text-muted mb-3">
+              Building clean, responsive and accessible user interfaces for modern web apps.
+            </p>
+            <span class="badge bg-primary-subtle text-primary skill-badge">HTML5</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">CSS3</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">Bootstrap</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">JavaScript</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">React</span>
+            <span class="badge bg-primary-subtle text-primary skill-badge">Responsive UI</span>
+          </div>
+        </div>
+
+
+       <!-- Back-End & Databases -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-pc-display-horizontal me-2 text-success"></i>Back-End & Databases
+            </h5>
+            <p class="text-muted mb-3">
+              Building APIs, server-side logic, and working with relational and NoSQL databases.
+            </p>
+            <span class="badge bg-success-subtle text-success skill-badge">Node.js</span>
+            <span class="badge bg-success-subtle text-success skill-badge">Express.js</span>
+            <span class="badge bg-success-subtle text-success skill-badge">REST APIs</span>
+            <span class="badge bg-success-subtle text-success skill-badge">MongoDB</span>
+            <span class="badge bg-success-subtle text-success skill-badge">PostgreSQL</span>
+            <span class="badge bg-success-subtle text-success skill-badge">SQL / Relational DBs</span>
+          </div>
+        </div>
+
+
+      <!-- Programming & Tools -->
+        <div class="col-lg-4">
+          <div class="card-soft p-3 p-md-4">
+            <h5 class="mb-2">
+              <i class="bi bi-tools me-2 text-info"></i>Programming & Tools
+            </h5>
+            <p class="text-muted mb-3">
+              Languages and tools I use to write, test, and manage production-ready code and data.
+            </p>
+            <span class="badge bg-info-subtle text-info skill-badge">Python</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Java</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Git & GitHub</span>
+            <span class="badge bg-info-subtle text-info skill-badge">VS Code</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Chrome DevTools</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Figma (basic)</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Google Sheets / Excel</span>
+            <span class="badge bg-info-subtle text-info skill-badge">Google Docs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+  <div class="container">
+    <p class="section-title">Projects</p>
+    <h2 class="section-heading mb-4">
+      Some things I've built
+      <span class="line"></span>
+    </h2>
+
+    <div class="row g-4">
+      <!-- Project 1: Portfolio -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card h-100">
+          <div class="project-media">
+            <img src="images/projects/portfolio-thumb.jpg" alt="Personal Portfolio Website preview">
+          </div>
+          <div class="card-body p-3 p-md-4">
+            <p class="project-tag mb-1">Portfolio</p>
+            <h5 class="card-title">Personal Portfolio Website</h5>
+            <p class="card-text text-muted">
+              A responsive one-page portfolio (this site) built with custom design to showcase my
+              skills, projects, and contact details as a full-stack developer.
+            </p>
+            <p class="small mb-2">
+              <strong>Tech:</strong> HTML, CSS, Bootstrap, Custom Design
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0 d-flex justify-content-between px-3 pb-3">
+            <a href="#home" class="btn btn-sm btn-outline-main">
+              <i class="bi bi-box-arrow-up-right me-1"></i>Live Demo
+            </a>
+            <a href="mailto:anitamuthike@gmail.com?subject=Portfolio%20Code%20Request" class="btn btn-sm btn-outline-muted">
+              <i class="bi bi-github me-1"></i>Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Smart Hostel Finder -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card h-100">
+          <div class="project-media">
+            <img src="images/Anita_hos.png" alt="Smart Hostel Finder with Chatbot preview" class="p-1">
+          </div>
+          <div class="card-body p-3 p-md-4">
+            <p class="project-tag mb-1">AI / Web App</p>
+            <h5 class="card-title">Smart Hostel Finder with Intelligent Chatbot</h5>
+            <p class="card-text text-muted">
+              A web app that helps students quickly find hostels by location, budget, and amenities,
+              supported by an intelligent chatbot that answers questions and guides users through the
+              process in a conversational way.
+            </p>
+            <p class="small mb-2">
+              <strong>Tech:</strong> HTML, CSS, JavaScript, Python (Flask/Django), Chatbot Integration
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0 d-flex justify-content-between px-3 pb-3">
+            <a href="mailto:anitamuthike@gmail.com?subject=Smart%20Hostel%20Finder%20Live%20Demo%20Request" class="btn btn-sm btn-outline-main">
+              <i class="bi bi-box-arrow-up-right me-1"></i>Live Demo
+            </a>
+            <a href="mailto:anitamuthike@gmail.com?subject=Smart%20Hostel%20Finder%20Code%20Request" class="btn btn-sm btn-outline-muted">
+              <i class="bi bi-github me-1"></i>Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Hospital Website -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card h-100">
+          <div class="project-media">
+            <img src="images/projects/hospital-thumb.jpg" alt="Hospital Website preview">
+          </div>
+          <div class="card-body p-3 p-md-4">
+            <p class="project-tag mb-1">Web Design / Development</p>
+            <h5 class="card-title">Hospital Website Development</h5>
+            <p class="card-text text-muted">
+              Developed a responsive hospital website focused on clear information presentation,
+              user-friendly navigation, and a professional healthcare design that works well across
+              devices.
+            </p>
+            <p class="small mb-2">
+              <strong>Tech:</strong> HTML, CSS, Bootstrap, Responsive Design
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0 d-flex justify-content-between px-3 pb-3">
+            <a href="https://anita.pythonanywhere.com" class="btn btn-sm btn-outline-main" target="_blank" rel="noreferrer">
+              <i class="bi bi-box-arrow-up-right me-1"></i>Live Demo
+            </a>
+            <a href="mailto:anitamuthike@gmail.com?subject=Hospital%20Website%20Code%20Request" class="btn btn-sm btn-outline-muted">
+              <i class="bi bi-github me-1"></i>Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-5" style="background:#f9fafb;">
+    <div class="container">
+      <p class="section-title">Education</p>
+      <h2 class="section-heading mb-4">My academic background</h2>
+
+       <div class="row">
+        <div class="col-lg-8">
+          <div class="card-soft p-3 p-md-4">
+            <span class="timeline-pill">Current Studies</span>
+            <h5 class="mb-1">Diploma / Degree in Information Technology</h5>
+            <p class="text-muted mb-2">
+              Information Technology Program • <span>Ongoing</span>
+            </p>
+            <p class="mb-2" style="font-size: 0.92rem;">
+              Studying core areas of IT including <strong>full-stack web development</strong>,
+              database management, networking, and system support.
+            </p>
+            <p class="small text-muted mb-0">
+              <strong>Relevant coursework:</strong> Web Development, Database Systems (DBMS),
+              Networking, Operating Systems, Software Engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="row mt-4">
+        <div class="col-lg-8">
+          <h6 class="fw-semibold mb-3">Certifications & Online Learning</h6>
+          <ul class="list-unstyled mb-0">
+            <li>• Intro to Web Development - Self-paced online course</li>
+            <li>• Basics of Networking - Self-paced online course</li>
+            <li>• Excel / Google Sheets for Data Entry - Self-paced online course</li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-5 bg-white">
+    <div class="container">
+      <p class="section-title">Experience</p>
+      <h2 class="section-heading mb-4">Practical experience</h2>
+
+      <div class="row g-4">
+        <!-- Attachment / Internship -->
+        <div class="col-lg-6">
+          <div class="card card-soft h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-1">
+                <span class="timeline-dot"></span>
+                <h5 class="card-title mb-0">IT Attachment / Internship</h5>
+              </div>
+              <p class="text-muted mb-2">Company / Organization Name • Dates</p>
+              <p class="mb-2">
+                Assisted with basic IT support, software installation, troubleshooting, and data
+                organization tasks.
+              </p>
+              <ul class="small text-muted mb-0">
+                <li>Helped resolve basic hardware and software issues.</li>
+                <li>Supported users with common IT problems.</li>
+                <li>Maintained records using Excel / Google Sheets.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelance / Projects -->
+        <div class="col-lg-6">
+          <div class="card card-soft h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-1">
+                <span class="timeline-dot"></span>
+                <h5 class="card-title mb-0">Freelance & Project Work</h5>
+              </div>
+              <p class="text-muted mb-2">Remote / Online • Ongoing</p>
+              <p class="mb-2">
+                Worked on small web and data entry projects including app promotion tracking,
+                YouTube metadata collection, and spreadsheet organization.
+              </p>
+              <ul class="small text-muted mb-0">
+                <li>Created structured templates for clean data entry.</li>
+                <li>Collected and organized online information accurately.</li>
+                <li>Communicated with clients and delivered work on time.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <p class="section-title">Contact</p>
+      <h2 class="section-heading mb-4">Let's work together</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="contact-card p-4">
+            <p class="mb-3">
+              If you'd like to work with me on a project, need help with web development or data
+              entry, or just want to say hello, feel free to reach out.
+            </p>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3">
+                <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                <strong>Email:</strong> anitamuthike@gmail.com
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-github me-2 text-dark"></i>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/AnitaMuthike" class="contact-link" target="_blank" rel="noopener noreferrer">github.com/AnitaMuthike</a>
+              </li>
+              <li class="mb-1">
+                <i class="bi bi-whatsapp me-2 text-success"></i>
+                <strong>WhatsApp:</strong> <a href="https://wa.me/254705197012" class="contact-link" target="_blank" rel="noopener noreferrer">+254 705 197 012</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="contact-card p-4">
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell me about your project or question..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary-custom">
+                <i class="bi bi-send me-1"></i>Send Message
+              </button>
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-3 border-top border-slate-700">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0">
+        © <span id="year"></span> Anita Muthike. All rights reserved.
+      </p>
+      <p class="mb-0">
+        Built with <span class="text-danger">♥</span> using
+        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">Bootstrap</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Auto-update year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("emailInput").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        const subject = encodeURIComponent("Portfolio message from " + name);
+        const body = encodeURIComponent(
+          "Name: " + name + "\n" +
+          "Email: " + email + "\n\n" +
+          message
+        );
+
+        window.location.href =
+          "mailto:anitamuthike@gmail.com?subject=" + subject + "&body=" + body;
+      });
+    }
+  </script>
+</body>
+</html>
