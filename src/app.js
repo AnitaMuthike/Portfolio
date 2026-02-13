@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.get("/", getHome);
 app.post("/contact", contactRateLimit, submitContact);
+app.get("/contact", (req, res) => res.redirect("/#contact"));
 app.get("/download-cv", downloadCv);
 
 app.use(notFound);
